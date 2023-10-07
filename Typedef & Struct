@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct namaHewan
+{
+    char namaSpesies[20];
+    char namaKingdom[20];
+    char namaClass[20];
+    int jumlahKaki;
+} datahewan; // memberi nama lain untuk struct, yaitu "datahewan"
+
+struct namaTumbuhan
+{
+    char namaSpesies[20];
+    char namaKingdom[20];
+    char namaClass[20];
+    int jumlahKeping;
+}; // membuat tipe data struct untuk data berkelompok yang tipe datanya berbeda
+
+void tampilanAwal()
+{
+    printf("=====================================================================\n");
+    printf("==============\033[1;32mPROGRAM MEMBANDINGKAN PENGGUNAAN TYPEDEF\033[0m===============\n"); // saya memberikan warna hijau
+    printf("=====================================================================\n\n");
+}
+int main()
+{
+    tampilanAwal();
+    printf("\033[1;34mKode Program yang Menggunakan Keyword Typedef\033[0m \n"); // saya memberikan warna biru
+    datahewan hewan;                                                             // inisialisasi variabel "hewan" dengan tipe data struct yang menggunakan typedef
+    strcpy(hewan.namaSpesies, "Gorilla gorilla");                                // meng-copy sebuah string ke dalam substruktruk "hewan" (deklarasi)
+    strcpy(hewan.namaKingdom, "Animalia");                                       // meng-copy sebuah string ke dalam substruktruk "hewan" (deklarasi)
+    strcpy(hewan.namaClass, "Mammalia");                                         // meng-copy sebuah string ke dalam substruktruk "hewan" (deklarasi)
+    hewan.jumlahKaki = 2;                                                        // deklarasi nilai ke dalam substruktur "hewan"
+
+    printf("Nama Latin  : %s \n", hewan.namaSpesies);  // menampilan substruktur "hewan"
+    printf("Kingdom     : %s \n", hewan.namaKingdom);  // menampilan substruktur "hewan"
+    printf("Class       : %s \n", hewan.namaClass);    // menampilan substruktur "hewan"
+    printf("Jumlah Kaki : %d \n\n", hewan.jumlahKaki); // menampilan substruktur "hewan"
+
+    printf("\033[1;34mKode Program yang Tidak Menggunakan Keyword Typedef\033[0m \n"); // saya memberikan warna biru
+    struct namaTumbuhan tumbuhan;                                                      // inisialisasi variabel "tumbuhan" dengan tipe data struct yang tidak menggunakan typedef
+    strcpy(tumbuhan.namaSpesies, "Cocos nucifera");                                    // meng-copy sebuah string ke dalam substruktruk "tumbuhan" (deklarasi)
+    strcpy(tumbuhan.namaKingdom, "Plantae");                                           // meng-copy sebuah string ke dalam substruktruk "tumbuhan" (deklarasi)
+    strcpy(tumbuhan.namaClass, "Liliopsida");                                          // meng-copy sebuah string ke dalam substruktruk "tumbuhan" (deklarasi)
+    tumbuhan.jumlahKeping = 1;                                                         // deklarasi nilai ke dalam substruktur "tumbuhan"
+
+    printf("Nama Latin  : %s \n", tumbuhan.namaSpesies);    // menampilan substruktur "tumbuhan"
+    printf("Kingdom     : %s \n", tumbuhan.namaKingdom);    // menampilan substruktur "tumbuhan"
+    printf("Class       : %s \n", tumbuhan.namaClass);      // menampilan substruktur "tumbuhan"
+    printf("Keping Biji : %d \n\n", tumbuhan.jumlahKeping); // menampilan substruktur "tumbuhan"
+
+    return 0;
+}
